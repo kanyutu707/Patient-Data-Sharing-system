@@ -1,0 +1,23 @@
+<ng-container *ngIf="registration_rep && registration_rep.user_details && registration_rep.approval_status===true">
+ <!-- <ng-container *ngFor="let facility of registration_rep?.facility_Details">
+    <ng-container *ngIf="facility.facility_Id==current_Facility">
+    -->
+      <ng-container *ngFor="let user of registration_rep.user_details">
+      
+        <tr class="tableRow">
+      
+          <td><img src="file:///home/ubuntu/Documents/my_projects/final_project/model_deployment/image_storage/${user.email}.jpg" alt=""></td>
+          <td>{{ user.first_Name }}</td>
+          <td>{{ user.user_Gender }}</td>
+          <td>{{ user.user_DOB }}</td>
+          
+          <td>{{ registration_rep.status }}</td> 
+          <td>
+            <div class="buttonClass">
+              <button (click)="viewRecords(user.user_Id?.toString())"><mat-icon>visibility</mat-icon></button>
+            </div>
+          </td>
+        </tr>
+      </ng-container>
+    </ng-container>
+

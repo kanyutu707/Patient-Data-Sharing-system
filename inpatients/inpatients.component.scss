@@ -1,0 +1,40 @@
+.container{
+    background-color:  rgb(219, 246, 255);
+    height: 100vh;
+}
+.emergencyContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+  
+}
+header{
+    background-color: rgb(219, 246, 255);
+    margin: 5px;
+}
+header h1{
+    font-size: 28px;
+    font-weight: 800;
+    padding: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+span {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    background-color: rgb(203, 242, 255);
+    margin-bottom: 3px;
+
+}
+
+h4 {
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+
+}

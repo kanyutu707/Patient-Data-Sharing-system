@@ -1,0 +1,97 @@
+.container {
+    background-color: whitesmoke;
+    width: 100%;
+    height: 100vh;
+    border: 1px solid transparent;
+}
+
+table {
+    width: 100%;
+
+}
+
+.diagnosis {
+    background-color: white;
+}
+
+.details {
+    display: flex;
+    background-color: white;
+    margin-bottom: 30px;
+    width: 100%;
+    padding: 200px;
+    justify-content: baseline;
+    padding: 10px;
+    height: 150px;
+}
+
+.description {
+    margin-left: 7px;
+    height: 150px;
+    background-color: whitesmoke;
+    width: 80%;
+}
+
+.description h3 {
+    font-family: sans-serif;
+    font-weight: 570;
+    font-size: 19px;
+    display: flex;
+    margin-left: 10px;
+    height: 15%;
+}
+
+.details img {
+    height: 125px;
+    display: flex;
+    width: 125px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+
+
+}
+
+.description h3 h2 {
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    display: flex;
+    margin-right: 10px;
+}
+
+table,
+th,
+td {
+    border-bottom: 1px solid black;
+    border-collapse: collapse;
+    height: 40px;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+th {
+    font-size: 20px;
+
+}
+.button-class{
+    display: flex;
+    justify-content: flex-end;
+    width: 97%;
+    padding: 10px;
+}
+button{
+    background-color: lightblue;
+    border: none;
+    height: 35px;
+    border-radius: 4px;
+    font-family: serif;
+    font-weight: 595;
+    
+}
+caption{
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: underline;
+    margin-bottom: 12px;
+}

@@ -1,0 +1,29 @@
+.hospital{
+    display: flex;
+    background-color: rgb(219, 246, 255);
+    justify-content: space-between;
+    width:100%;
+    border-bottom: 1px solid black;
+    align-items: center;
+    align-self: center;
+    cursor: pointer;
+    
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+span{
+    display: flex;
+    padding: 4px;
+    align-items: flex-start;
+    
+}
+span button{
+    margin: 3px;
+    width: 70px;
+   height: 40px;
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 17px; 
+   border:none;
+   padding: 1px;
+   border-radius: 3px;
+}

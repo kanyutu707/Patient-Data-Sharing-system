@@ -1,0 +1,16 @@
+<header *ngIf="current_role=='Admin'">
+    <h2>SPDM</h2>
+        <section>
+                
+                    <a href="javascript:void(0)" (click)="Account()"> 
+                        <mat-icon>perm_identity</mat-icon>
+                        LOGOUT
+                    </a>
+               
+       
+               
+                
+            </section>
+</header>
+<app-login-page *ngIf="current_role!='Admin'"></app-login-page>
+ 

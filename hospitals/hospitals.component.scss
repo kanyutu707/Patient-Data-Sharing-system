@@ -1,0 +1,129 @@
+main {
+    display: flex;
+    
+    
+}
+
+.container {
+    background-color: rgb(219, 246, 255);
+    height: 92vh;
+    width: 1500px;
+    background-size: cover;
+    background-position: center;
+    overflow-x: hidden;
+}
+
+.emergencyContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(208, 243, 255);
+    width: 97%;
+    padding: 10px;
+    box-shadow: 1px 2px 3px 1px lightblue;
+    margin: auto;
+}
+
+.emergencyContainer span {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    height: 30px;
+    border-bottom: 1px solid darkblue;
+
+
+}
+.form-container {
+    height: 92vh;
+    border: 1px solid transparent;
+    background-color:rgb(201, 235, 247);
+    max-width: 500px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+
+    margin: 4px;
+    margin-top: 4px;
+    background-color: rgb(213, 238, 247);
+    height: 95%;
+    border-radius: 4px;
+    padding: 7px;
+    border: 1px solid orange;
+
+
+}
+
+
+header h1 {
+    display: flex;
+    justify-content: center;
+    text-decoration: underline;
+    padding: 10px;
+    margin: 10px;
+    font-weight: 800;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+label {
+    font-size: 19px;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 7px;
+}
+
+span {
+    width: 100%;
+    margin-top: 19px;
+}
+
+input {
+    width: 97%;
+    height: 30px;
+}
+
+#changeButton {
+    display: flex;
+    justify-content: space-around;
+
+
+
+}
+
+button {
+    width: 100px;
+    border: none;
+    height: 37px;
+    border-radius: 2px;
+    background-color: orange;
+    font-weight: 645;
+
+}
+
+button:first-child {
+    background-color: blue;
+}
+.emergencyContainer span img {
+    width: 100px;
+}
+
+header h1 {
+    margin: 17px;
+    margin-left: 35px;
+    font-size: 33px;
+    font-weight: 700;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+#actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+#actions mat-icon:first-child {
+    background-color: lightgreen;
+
+}

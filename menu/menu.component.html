@@ -1,0 +1,32 @@
+<header *ngIf="current_role == 'Medical_Officer' || current_role == 'Medical_Admin'">
+    <h2>{{current_Facility}}</h2>
+        <section>
+                
+                    <a href="javascript:void(0)" (click)="homeNavigate()">
+                        <mat-icon>home</mat-icon>
+                        HOME
+                    </a>
+                    <a href="javascript:void(0)" (click)="emergencyNavigate()">
+                        <mat-icon>add</mat-icon>
+                        REGISTER
+                    </a>
+                    <a href="javascript:void(0)" (click)="inpatientNavigate()">
+                        <mat-icon>group</mat-icon>
+                        INPATIENT
+                    </a>
+                    <a href="javascript:void(0)" (click)="outpatientNavigate()">
+                        <mat-icon>local_hospital</mat-icon>
+                        OUTPATIENT
+                    </a>
+                    <a href="javascript:void(0)" (click)="Account()">
+                       <mat-icon>perm_identity</mat-icon>
+                        LOGOUT
+                    </a>
+               
+       
+               
+                
+            </section>
+</header>
+
+<app-login-page *ngIf="current_role !== 'Medical_Admin' && current_role !== 'Medical_Officer'"></app-login-page>

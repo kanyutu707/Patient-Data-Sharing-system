@@ -1,0 +1,48 @@
+.body_container{
+    background-color: lightblue;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 95vh;
+    border: 1px solid transparent;
+}
+.container{
+    background-color: rgb(229, 249, 255);
+    width: 70%;
+    margin: auto;
+    height: 40%;
+    margin-top: 30vh;
+    border-radius: 5px;
+}
+section{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+span{
+    display: block;
+    margin-top: 10px;
+    align-items: start;
+
+
+
+}
+span h2, span h3{
+    font-size: 24px;
+    color: black;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin: 7px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+span h2{
+    text-decoration: underline;
+}
+button{
+    width: 150px;
+    background-color: orange;
+    height: 50px;
+
+}

@@ -1,0 +1,35 @@
+<app-menu></app-menu>
+<div class="container" *ngIf="current_role == 'Medical_Officer' || current_role == 'Medical_Admin'">
+    
+    <form (ngSubmit)="savePatient()">
+        <header>
+            <h1>
+                REGISTER PATIENT
+            </h1>
+        </header>
+        <section class="form-group">
+            <input list="patientOptions" placeholder="PATIENT" [(ngModel)]="register.system_Patient" name="system_Patient" required>
+            <datalist id="patientOptions">
+                <option *ngFor="let patient of patientOptions" [value]="patient"></option>
+            </datalist>
+            
+        </section>
+        <section class="form-group">
+            <input list="statusOptions" placeholder="INPATIENT / OUTPATIENT" [(ngModel)]="register.status" name="status" required>
+            <datalist id="statusOptions">
+                <option *ngFor="let status of statuses" [value]="status"></option>
+            </datalist>
+            
+        </section>
+        <section class="form-group">
+            <input type="hidden" placeholder="REGISTRATION TYPE" value="Physical" readonly [(ngModel)]="register.registration_Type" name="registration_Type" required>
+        </section>
+
+       
+        <section class="button-group">
+            <button>SAVE</button>
+        </section>
+        
+    </form>
+</div>
+<app-login-page *ngIf="current_role !== 'Medical_Admin' && current_role !== 'Medical_Officer'"></app-login-page>

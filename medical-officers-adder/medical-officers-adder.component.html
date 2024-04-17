@@ -1,0 +1,37 @@
+<form (ngSubmit)="createOfficer()" *ngIf="check_role=='Medical_Admin'">
+   
+        <header><h1>MEDICAL OFFICER DETAILS</h1></header>
+        <span>
+            <label for="first_name">First_Name</label>
+            <input type="text" placeholder="First_Name" [(ngModel)]="user.first_Name"
+                name="user.first_Name">
+        </span>
+        <span>
+            <label for="last_name">Last Name</label>
+            <input type="text" placeholder="Last_Name" [(ngModel)]="user.last_Name"
+                name="application_Date">
+        </span>
+        <span>
+            <label for="gender">Gender</label>
+            <input type="text" placeholder="Gender" [(ngModel)]="user.user_Gender"
+                name="application_Date">
+        </span>
+        <span>
+            <label for="email">Email</label>
+            <input type="email" placeholder="Email" [(ngModel)]="user.email"
+                name="application_Date">
+        </span>
+
+        <span>
+            <label for="password">Password</label>
+            <input type="password" placeholder="password" [(ngModel)]="user.password"
+                name="application_Date">
+        </span>
+    
+
+    <span id="changeButton">
+        <button type="submit">ACTIVATE</button>
+        <button type="reset">REJECT</button>
+    </span>
+</form>
+<app-login-page *ngIf="check_role=='Medical_Officer'"></app-login-page>

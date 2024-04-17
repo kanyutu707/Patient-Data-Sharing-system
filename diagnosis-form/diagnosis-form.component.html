@@ -1,0 +1,32 @@
+<div class="modal">
+    <button class="modal-button" mat-icon-button (click)="closeDialog($event)">
+        <mat-icon>close</mat-icon>
+    </button>
+
+    <div class="container">
+        <form #form="ngForm" (ngSubmit)="saveDiagnosis()">
+            <header>
+                <h1>PATIENT DATA</h1></header>
+            <span class="form-group">
+                <label for="diagnosis_name">Diagnosis Name</label>
+                <input type="text" name="diagnosis_name" placeholder="diagnosis" [(ngModel)]="diagnosis.diagnosis_Name" required>
+            </span>
+            <span class="form-group">
+                <label for="treatment">Treatment</label>
+                <textarea name="treatment" placeholder="treatment" [(ngModel)]="diagnosis.treatment" required></textarea>
+            </span>
+            <span class="form-group">
+                <label for="symptoms">Symptoms</label>
+                <textarea name="symptoms" placeholder="symptoms" [(ngModel)]="diagnosis.symptoms" required></textarea>
+            </span>
+            <span class="form-group">
+                <input type="text" name="sys_pat" placeholder="registration_id" [(ngModel)]="registrationId" readonly>
+            </span>
+            
+            <span class="button-group">
+                <button type="submit">SAVE</button>
+                <button type="button" (click)="closeDialog($event)">CANCEL</button>
+            </span>
+        </form>
+    </div>
+</div>

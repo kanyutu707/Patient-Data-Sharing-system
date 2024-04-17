@@ -1,0 +1,102 @@
+.container{
+    background-color:  rgb(219, 246, 255);
+    height: 100vh;
+}
+.stats{
+    height: 350px;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(156, 225, 248) ;
+}
+.summary-pie-chart{
+    height: 400px;
+}
+.stat_numbers{
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.other_stats{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+.top_other_stats, .bottom_other_stats{
+    display: flex;
+    height: 50%;
+    justify-content: space-between;
+    width: 100%;
+    
+}
+
+.top_other_stats span, .bottom_other_stats span{
+    margin-right: 40px;
+    width: 50%;
+    align-items: center;
+    border-radius: 3%;
+}
+.top_other_stats span h1{
+    align-items:start;
+}
+.emergency_numbers{
+    width: 20%;
+    border-radius: 4%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(203, 242, 255);
+}
+.emergency_numbers, .top_other_stats span, .bottom_other_stats span{
+    border: 1px solid lightblue;
+    margin: 5px;
+    padding: 7px;
+    box-shadow: 1px 2px 2px 4px lightblue;
+
+}
+#MyChart{
+    width: 100%;
+    background-color:rgb(203, 242, 255)
+
+}
+.summaryPieChart{
+    width: 50%;
+    padding: 10px;
+}
+.emergencyContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+}
+header{
+    background-color: rgb(208, 243, 255);
+    margin: 5px;
+}
+header h1{
+    font-size: 28px;
+    font-weight: 800;
+    padding: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+span {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    background-color: rgb(203, 242, 255);
+    margin-bottom: 3px;
+
+}
+
+h4 {
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+
+}

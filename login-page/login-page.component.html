@@ -1,0 +1,27 @@
+<div class="container">
+    <section class="loginPage">
+        <form class="loginForm" (ngSubmit)="onSubmitLogin()" #loginForm="ngForm">
+            <div class="intro">
+                <img src="https://www.shutterstock.com/shutterstock/photos/2278090533/display_1500/stock-photo-man-portrait-of-a-doctor-wearing-a-white-coat-and-eyeglasses-and-a-stethoscope-looking-into-the-2278090533.jpg" alt="" srcset="">
+                <h3>LOGIN FORM</h3>
+            </div>
+            <div class="inputSection">
+                <input type="text" placeholder="Email Address" class="form-control" name="email" [(ngModel)]="email">
+                <input type="password" placeholder="Password" class="form-control" name="password" [(ngModel)]="password">
+                <span class="loginSection">
+                    <span class="rememberSection">
+                    <input type="checkbox" id="checkInput">
+                    <h5>Remember Me</h5>
+                    </span>
+                    <button type="submit">LOGIN</button>
+                </span>
+                <span class="utilitiesSection">
+                    <a href="#">Register now</a>
+                    <a href="#" id="second">Forgot Password</a>
+                </span>
+            </div>
+        </form>
+
+    </section>
+   
+</div>

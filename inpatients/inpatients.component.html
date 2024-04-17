@@ -1,0 +1,29 @@
+<app-menu></app-menu>
+<div class="container" *ngIf="current_role == 'Medical_Officer' || current_role == 'Medical_Admin'">
+<div class="emergencyContainer">
+    <app-search-bar></app-search-bar>
+    <header>
+        <h1>INPATIENT</h1>
+        
+    </header>
+    <span>
+        <h4>Image</h4>
+        <h4>Name</h4>
+        <h4>Gender</h4>
+        <h4>DOB</h4>
+        <h4>STATUS</h4>
+        <h4>ACTION</h4>
+    </span>
+
+
+    <ng-container *ngFor="let registered_rep of registrations; let i = index">
+        <ng-container *ngIf="i < 5 && registered_rep.status === 'Inpatient' && registered_rep.facility_Details![i].facility_Id==current_Facility">
+            <app-patient [registration_rep]="registered_rep" (openDiagnosisForm)="showDiagnosisForm($event)"></app-patient>
+        </ng-container>
+    </ng-container>
+    
+
+
+</div>
+</div>
+<app-login-page *ngIf="current_role !== 'Medical_Admin' && current_role !== 'Medical_Officer'"></app-login-page>
