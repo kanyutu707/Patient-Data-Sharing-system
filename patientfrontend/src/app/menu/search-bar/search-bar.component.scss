@@ -1,0 +1,42 @@
+.searchContainer{
+    width: 100%;
+    justify-content: end;
+    text-align: end;
+    align-items: end;
+    padding: 10px;
+    background-color: rgb(156, 225, 248) ;
+    margin:10px 0 10px 0;
+}
+.searchContainer span{
+    margin-right: 28px;
+}
+span input{
+    height: 30px;
+    border-radius: 0;
+    border: 2px solid black;
+    border-right: none;
+    width: 400px;
+    border-top-left-radius:10px;
+    border-bottom-left-radius:10px;
+    
+}
+span button{
+    height: 30px;
+    border-radius: 0;
+    border: none;
+    background-color: orange;
+    border:2px solid black;
+    border-left: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 120px;
+    font-size: 17px;
+    font-weight:800;
+    font-family: sans-serif;
+}
+
+span input{
+    height: 30px;
+    border-right: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

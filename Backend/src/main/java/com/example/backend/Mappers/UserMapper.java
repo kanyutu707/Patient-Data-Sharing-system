@@ -12,7 +12,7 @@ import org.mapstruct.Mapping;
 public interface UserMapper {
     UserDTO toUserDto(System_User user);
 
-    @Mapping(target="password", ignore = true)
+    //@Mapping(target="password", ignore = true)
     System_User signUpToUser(SignUpDTO signUpDTO);
 
 

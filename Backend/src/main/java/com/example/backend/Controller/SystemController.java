@@ -176,20 +176,20 @@ public class SystemController {
         if (optionalUser.isPresent()) {
             System_User updateData = optionalUser.get();
 
-            if (StringUtils.isNotBlank(sys_user.getFirst_Name())) {
-                updateData.setFirst_Name(sys_user.getFirst_Name());
+            if (StringUtils.isNotBlank(sys_user.getFirstName())) {
+                updateData.setFirstName(sys_user.getFirstName());
             }
 
-            if(StringUtils.isNotBlank(sys_user.getLast_Name())){
-                updateData.setLast_Name(sys_user.getLast_Name());
+            if(StringUtils.isNotBlank(sys_user.getLastName())){
+                updateData.setLastName(sys_user.getLastName());
             }
 
             if(StringUtils.isNotBlank(sys_user.getEmail())){
                 updateData.setEmail(sys_user.getEmail());
             }
 
-            if(StringUtils.isNotBlank(sys_user.getFacility_of_choice())){
-                updateData.setFacility_of_choice(sys_user.getFacility_of_choice());
+            if(StringUtils.isNotBlank(sys_user.getFacilityOfChoice())){
+                updateData.setFacilityOfChoice(sys_user.getFacilityOfChoice());
             }
             if(StringUtils.isNotBlank(sys_user.getPassword())){
                 updateData.setPassword(sys_user.getPassword());

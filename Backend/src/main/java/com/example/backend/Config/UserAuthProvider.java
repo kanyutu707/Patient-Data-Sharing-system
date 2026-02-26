@@ -45,8 +45,8 @@ public class UserAuthProvider {
                 .withIssuer(dto.getEmail())
                 .withIssuedAt(now)
                 .withExpiresAt(validity)
-                .withClaim("fistName" , dto.getFirst_Name())
-                .withClaim("lastName" , dto.getLast_Name())
+                .withClaim("fistName" , dto.getFirstName())
+                .withClaim("lastName" , dto.getLastName())
                 .sign(Algorithm.HMAC256(secretKey));
     }
     public Authentication validateToken(String token){
@@ -56,8 +56,8 @@ public class UserAuthProvider {
         DecodedJWT decoded=verifier.verify(token);
        UserDTO user= UserDTO.builder()
                 .email(decoded.getIssuer())
-                .first_Name(decoded.getClaim("firstName").asString())
-                .last_Name(decoded.getClaim("lastName").asString())
+                .firstName(decoded.getClaim("firstName").asString())
+                .lastName(decoded.getClaim("lastName").asString())
                 .build();
 
        return new UsernamePasswordAuthenticationToken(user, null, Collections.emptyList());
