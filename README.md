@@ -169,7 +169,7 @@ A dedicated microservice responsible for all facial recognition operations:
 
 The emergency face-scan feature is designed with both speed and privacy in mind.
 
-* **Opt-In by Patients** - Patients must explicitly enable emergency scan access when setting up their profile. The feature is disabled by default.
+* **Opt-In by Patients** - Patients must explicitly enable emergency scan access when setting up their profile. the feature is disabled by default.
 * **Custom TensorFlow Model and FastAPI** - The facial recognition model was trained specifically for this system. It is served as an independent microservice using FastAPI, keeping the recognition logic decoupled from the core application and allowing independent retraining and updates.
 * **Zero-Exposure Interface** - The system is designed so that the scanning user never views the victim's health history. The mobile app securely transfers the data backend-to-hospital, preserving absolute patient privacy at the scene.
 * **Minimal Data Disclosure** - Only critical, potentially life-saving information is shared with the hospital in emergency mode. Full medical records are never exposed through this channel.
@@ -244,7 +244,3 @@ Full configuration details for each component are documented in the respective R
 The FastAPI face recognition service automatically generates interactive Swagger documentation, which is accessible at the `/docs` path on port 8000 once the service is running.
 
 The endpoints for the core Spring Boot backend can be reviewed within the controller layers of the source code.
-
----
-
-Built to ensure no patient is ever treated without the information needed to save their life.
