@@ -1,3 +1,4 @@
+```markdown
 # Patient Data Sharing System
 
 Bridging patient data across facilities, securely and instantly.
@@ -8,17 +9,17 @@ The Patient Data Sharing System is a comprehensive Health Information Exchange (
 
 ## Table of Contents
 
-* [Overview](https://www.google.com/search?q=%23overview)
-* [Key Features](https://www.google.com/search?q=%23key-features)
-* [System Architecture](https://www.google.com/search?q=%23system-architecture)
-* [Tech Stack](https://www.google.com/search?q=%23tech-stack)
-* [Modules](https://www.google.com/search?q=%23modules)
-* [How It Works](https://www.google.com/search?q=%23how-it-works)
-* [Emergency Face-Scan Protocol](https://www.google.com/search?q=%23emergency-face-scan-protocol)
-* [Data Privacy and Security](https://www.google.com/search?q=%23data-privacy-and-security)
-* [Getting Started](https://www.google.com/search?q=%23getting-started)
-* [Environment Variables](https://www.google.com/search?q=%23environment-variables)
-* [API Documentation](https://www.google.com/search?q=%23api-documentation)
+- [Overview](#overview)
+- [Key Features](#key-features)
+- [System Architecture](#system-architecture)
+- [Tech Stack](#tech-stack)
+- [Modules](#modules)
+- [How It Works](#how-it-works)
+- [Emergency Face-Scan Protocol](#emergency-face-scan-protocol)
+- [Data Privacy and Security](#data-privacy-and-security)
+- [Getting Started](#getting-started)
+- [Environment Variables](#environment-variables)
+- [API Documentation](#api-documentation)
 
 ---
 
@@ -43,7 +44,9 @@ Patients have full control over who accesses their data. Facilities must request
 
 ## System Architecture
 
+
 ```
+
 +-----------------------------------------------------------------+
 |                  Patient Data Sharing System                    |
 |                                                                 |
@@ -79,7 +82,7 @@ Patients have full control over who accesses their data. Facilities must request
 ## Tech Stack
 
 | Layer | Technology |
-| --- | --- |
+|---|---|
 | **Backend API** | Java 17, Spring Boot |
 | **Face Recognition Service** | Python, FastAPI, TensorFlow |
 | **Database** | MySQL |
@@ -95,7 +98,6 @@ Patients have full control over who accesses their data. Facilities must request
 ### 1. Medical Officer Portal (Angular)
 
 The interface used by doctors and medical officers at registered facilities to:
-
 * View authorised patient records
 * Request access to patient data from other facilities
 * View emergency-shared records
@@ -104,7 +106,6 @@ The interface used by doctors and medical officers at registered facilities to:
 ### 2. Hospital Admin Portal (Angular)
 
 Used by facility administrators to:
-
 * Manage the facility profile and registered medical officers
 * Initiate data access requests to other facilities on behalf of medical officers
 * Monitor incoming and outgoing data sharing requests
@@ -113,7 +114,6 @@ Used by facility administrators to:
 ### 3. Super Admin Portal (Angular)
 
 System-wide control for the platform administrator:
-
 * Onboard and manage all registered healthcare facilities
 * Monitor system-wide data exchange activity and audit logs
 * Manage users across all facilities
@@ -122,7 +122,6 @@ System-wide control for the platform administrator:
 ### 4. Patient Mobile App (Flutter)
 
 The patient-facing application for full control over personal health data:
-
 * Register and choose a primary healthcare facility
 * View and manage personal medical records
 * Receive and authorise data access requests from facilities via a secure one-time code
@@ -132,7 +131,6 @@ The patient-facing application for full control over personal health data:
 ### 5. Face Recognition Service (FastAPI + TensorFlow)
 
 A dedicated microservice responsible for all facial recognition operations:
-
 * Serves a custom-trained TensorFlow model for patient identification
 * Connects seamlessly to the wider system architecture using FastAPI
 * Accepts face scan inputs from the Flutter mobile app
@@ -169,7 +167,7 @@ A dedicated microservice responsible for all facial recognition operations:
 
 The emergency face-scan feature is designed with both speed and privacy in mind.
 
-* **Opt-In by Patients** - Patients must explicitly enable emergency scan access when setting up their profile. the feature is disabled by default.
+* **Opt-In by Patients** - Patients must explicitly enable emergency scan access when setting up their profile. The feature is disabled by default.
 * **Custom TensorFlow Model and FastAPI** - The facial recognition model was trained specifically for this system. It is served as an independent microservice using FastAPI, keeping the recognition logic decoupled from the core application and allowing independent retraining and updates.
 * **Zero-Exposure Interface** - The system is designed so that the scanning user never views the victim's health history. The mobile app securely transfers the data backend-to-hospital, preserving absolute patient privacy at the scene.
 * **Minimal Data Disclosure** - Only critical, potentially life-saving information is shared with the hospital in emergency mode. Full medical records are never exposed through this channel.
@@ -241,6 +239,12 @@ Full configuration details for each component are documented in the respective R
 
 ## API Documentation
 
-The FastAPI face recognition service automatically generates interactive Swagger documentation, which is accessible at the `/docs` path on port 8000 once the service is running.
+The FastAPI face recognition service automatically generates interactive Swagger documentation, which is accessible at the `/docs` path on port 8000 once the service is running. 
 
 The endpoints for the core Spring Boot backend can be reviewed within the controller layers of the source code.
+
+---
+
+Built to ensure no patient is ever treated without the information needed to save their life.
+
+```
