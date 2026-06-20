@@ -206,7 +206,7 @@ Ensure the following are installed before setting up the project:
 
 #### Backend Setup
 
-Clone the repository from `kanyutu707/Patient-Data-Sharing-system`, configure the database connection in the application properties file, then build and run the Spring Boot application. The API will be available on port 8080 by default.
+Clone the repository from `alfred1001/Patient-Data-Sharing-system`, configure the database connection in the application properties file, then build and run the Spring Boot application. The API will be available on port 8080 by default.
 
 #### Face Recognition Service Setup
 
