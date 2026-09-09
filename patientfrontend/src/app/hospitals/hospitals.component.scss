@@ -1,129 +1,276 @@
-main {
+:host {
+  --paper: #F6F4EF;
+  --paper-dim: #EDEAE1;
+  --ink: #1C2B3A;
+  --ink-soft: #47586A;
+  --teal: #1F6F8B;
+  --teal-dark: #164F63;
+  --clay: #C23B3B;
+  --clay-dark: #9E2E2E;
+  --line: rgba(28, 43, 58, 0.12);
+
+  display: block;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--paper);
+  min-height: 100vh;
+}
+
+main.admin-hospitals-main {
+  display: flex;
+  gap: 24px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 24px 32px 64px;
+}
+
+/* Left Side List Area */
+.hospitals-list-section {
+  flex: 1;
+  min-width: 0;
+}
+
+.section-title-header {
+  margin: 20px 0;
+
+  h1 {
+    font-family: 'Source Serif 4', serif;
+    font-size: clamp(24px, 2.8vw, 32px);
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  p {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+}
+
+.facility-data-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  box-shadow: 0 4px 16px rgba(28, 43, 58, 0.04);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.table-head-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--paper-dim);
+  border-bottom: 1px solid var(--line);
+  padding: 12px 20px;
+
+  h4 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     display: flex;
-    
-    
-}
-
-.container {
-    background-color: rgb(219, 246, 255);
-    height: 92vh;
-    width: 1500px;
-    background-size: cover;
-    background-position: center;
-    overflow-x: hidden;
-}
-
-.emergencyContainer {
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(208, 243, 255);
-    width: 97%;
-    padding: 10px;
-    box-shadow: 1px 2px 3px 1px lightblue;
-    margin: auto;
-}
-
-.emergencyContainer span {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    height: 30px;
-    border-bottom: 1px solid darkblue;
-
-
-}
-.form-container {
-    height: 92vh;
-    border: 1px solid transparent;
-    background-color:rgb(201, 235, 247);
-    max-width: 500px;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    width: 95%;
-
-    margin: 4px;
-    margin-top: 4px;
-    background-color: rgb(213, 238, 247);
-    height: 95%;
-    border-radius: 4px;
-    padding: 7px;
-    border: 1px solid orange;
-
-
-}
-
-
-header h1 {
-    display: flex;
+    align-items: center;
     justify-content: center;
-    text-decoration: underline;
-    padding: 10px;
-    margin: 10px;
-    font-weight: 800;
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
+  }
 }
 
-label {
-    font-size: 19px;
-    font-weight: 700;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-bottom: 7px;
+.facility-items-container {
+  display: flex;
+  flex-direction: column;
+
+  .hospital-row-wrapper {
+    border-bottom: 1px solid var(--line);
+    transition: background-color 0.15s ease;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:hover {
+      background-color: rgba(31, 111, 139, 0.03);
+    }
+  }
 }
 
-span {
+/* Pagination */
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+
+  .page-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 38px;
+    padding: 0 14px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink);
+    cursor: pointer;
+    transition: all 0.15s ease;
+
+    &:hover:not(:disabled) {
+      background: var(--teal);
+      color: #fff;
+      border-color: var(--teal);
+
+      mat-icon { color: #fff; }
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    mat-icon {
+      font-size: 16px;
+      width: 16px;
+      height: 16px;
+      color: var(--ink-soft);
+    }
+  }
+
+  .page-indicator {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-soft);
+  }
+}
+
+/* Right Side Form Sidebar */
+.form-sidebar-container {
+  width: 420px;
+  flex-shrink: 0;
+}
+
+.management-form-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 24px;
+  box-shadow: 0 4px 16px rgba(28, 43, 58, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-section-title {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 8px;
+  margin-top: 4px;
+
+  h2 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  &.admin-title-spacing {
+    margin-top: 12px;
+  }
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+
+  label {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-soft);
+  }
+
+  input {
+    height: 40px;
     width: 100%;
-    margin-top: 19px;
+    padding: 0 12px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+
+    &:focus {
+      outline: none;
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(31, 111, 139, 0.15);
+    }
+
+    &[readonly] {
+      background-color: var(--paper-dim);
+      color: var(--ink-soft);
+      cursor: not-allowed;
+    }
+  }
 }
 
-input {
-    width: 97%;
-    height: 30px;
+.geo-coords-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
 }
 
-#changeButton {
-    display: flex;
-    justify-content: space-around;
+.form-actions-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
 
-
-
-}
-
-button {
-    width: 100px;
+  button {
+    flex: 1;
+    height: 42px;
     border: none;
-    height: 37px;
-    border-radius: 2px;
-    background-color: orange;
-    font-weight: 645;
+    border-radius: 3px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
 
+    &.btn-activate {
+      background-color: var(--teal);
+      color: #fff;
+
+      &:hover {
+        background-color: var(--teal-dark);
+      }
+    }
+
+    &.btn-reject {
+      background-color: var(--paper-dim);
+      color: var(--ink);
+      border: 1px solid var(--line);
+
+      &:hover {
+        background-color: var(--line);
+      }
+    }
+  }
 }
 
-button:first-child {
-    background-color: blue;
-}
-.emergencyContainer span img {
-    width: 100px;
-}
+/* Responsive Viewports */
+@media (max-width: 1024px) {
+  main.admin-hospitals-main {
+    flex-direction: column;
+    padding: 16px;
+  }
 
-header h1 {
-    margin: 17px;
-    margin-left: 35px;
-    font-size: 33px;
-    font-weight: 700;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  .form-sidebar-container {
+    width: 100%;
+  }
 
-}
-
-#actions {
-    display: flex;
-    justify-content: space-between;
-}
-
-#actions mat-icon:first-child {
-    background-color: lightgreen;
-
+  .table-head-row {
+    display: none; /* Stack cards cleanly on mobile */
+  }
 }

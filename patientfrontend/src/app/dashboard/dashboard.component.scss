@@ -1,102 +1,252 @@
-.container{
-    background-color:  rgb(219, 246, 255);
-    height: 100vh;
-}
-.stats{
-    height: 350px;
-    display: flex;
-    justify-content: space-between;
-    background-color: rgb(156, 225, 248) ;
-}
-.summary-pie-chart{
-    height: 400px;
-}
-.stat_numbers{
-    display: flex;
-    justify-content: space-between;
-    width: 50%;
-    padding-top: 30px;
-    padding-bottom: 30px;
-}
-.other_stats{
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-}
-.top_other_stats, .bottom_other_stats{
-    display: flex;
-    height: 50%;
-    justify-content: space-between;
-    width: 100%;
-    
+:host {
+  --paper: #F6F4EF;
+  --paper-dim: #EDEAE1;
+  --ink: #1C2B3A;
+  --ink-soft: #47586A;
+  --teal: #1F6F8B;
+  --teal-dark: #164F63;
+  --sage: #CFE0D2;
+  --clay: #C23B3B;
+  --line: rgba(28, 43, 58, 0.12);
+
+  display: block;
+  background-color: var(--paper);
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
 }
 
-.top_other_stats span, .bottom_other_stats span{
-    margin-right: 40px;
-    width: 50%;
-    align-items: center;
-    border-radius: 3%;
-}
-.top_other_stats span h1{
-    align-items:start;
-}
-.emergency_numbers{
-    width: 20%;
-    border-radius: 4%;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgb(203, 242, 255);
-}
-.emergency_numbers, .top_other_stats span, .bottom_other_stats span{
-    border: 1px solid lightblue;
-    margin: 5px;
-    padding: 7px;
-    box-shadow: 1px 2px 2px 4px lightblue;
+.dashboard-wrapper {
+  padding: 40px 0 80px;
 
-}
-#MyChart{
-    width: 100%;
-    background-color:rgb(203, 242, 255)
-
-}
-.summaryPieChart{
-    width: 50%;
-    padding: 10px;
-}
-.emergencyContainer {
-    display: flex;
-    flex-direction: column;
-    background-color: whitesmoke;
-}
-header{
-    background-color: rgb(208, 243, 255);
-    margin: 5px;
-}
-header h1{
-    font-size: 28px;
-    font-weight: 800;
-    padding: 5px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-span {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    background-color: rgb(203, 242, 255);
-    margin-bottom: 3px;
-
+  .wrap {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
 }
 
-h4 {
+.dashboard-header {
+  margin-bottom: 32px;
 
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: sans-serif;
+  h1 {
+    font-family: 'Source Serif 4', serif;
+    font-size: clamp(26px, 3.2vw, 36px);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+
+  p {
+    color: var(--ink-soft);
+    font-size: 15.5px;
+  }
+}
+
+/* Stats Overview Layout */
+.stats-overview {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 24px;
+  margin-bottom: 40px;
+  align-items: stretch;
+}
+
+.stat_numbers {
+  display: flex;
+  gap: 16px;
+}
+
+.emergency_numbers {
+  flex: 0 0 140px;
+  background: var(--teal-dark);
+  color: #fff;
+  border-radius: 4px;
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 10px 20px -10px rgba(28, 43, 58, 0.15);
+
+  h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: #C9DBD5;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  .stat-val {
+    font-family: 'Source Serif 4', serif;
+    font-size: 38px;
     font-weight: 700;
-    font-size: 20px;
+  }
+}
 
+.other_stats {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.top_other_stats, .bottom_other_stats {
+  display: flex;
+  gap: 16px;
+  flex: 1;
+}
+
+.stat-card {
+  flex: 1;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(28, 43, 58, 0.03);
+
+  h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--ink-soft);
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  .stat-val {
+    font-family: 'Source Serif 4', serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+}
+
+/* Chart Container Card */
+.summaryPieChart {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(28, 43, 58, 0.03);
+
+  .canvas-container {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+  }
+
+  h3 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 15px;
+    color: var(--ink-soft);
+    margin-top: 16px;
+    font-weight: 600;
+  }
+}
+
+#MyChart {
+  width: 100% !important;
+  max-height: 220px;
+}
+
+/* Patients Emergency Queue Card */
+.emergencyContainer {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(28, 43, 58, 0.03);
+  overflow: hidden;
+}
+
+.emergency-header-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  background: var(--paper-dim);
+  border-bottom: 1px solid var(--line);
+
+  h2 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+
+  p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+  }
+
+  .view-all-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--teal);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.table-head-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  padding: 12px 24px;
+
+  h4 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.patient-list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 960px) {
+  .stats-overview {
+    grid-template-columns: 1fr;
+  }
+
+  .stat_numbers {
+    flex-direction: column;
+  }
+
+  .emergency_numbers {
+    flex: none;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard-wrapper .wrap {
+    padding: 0 16px;
+  }
+
+  .top_other_stats, .bottom_other_stats {
+    flex-direction: column;
+  }
 }

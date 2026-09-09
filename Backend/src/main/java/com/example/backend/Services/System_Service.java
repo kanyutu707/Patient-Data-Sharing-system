@@ -40,8 +40,7 @@ public class System_Service {
 
     private UserMapper userMapper;
 
-    private  VincentyFormula vincentyFormula;
-
+    private VincentyFormula vincentyFormula;
 
     @Autowired
     public void VincentyFormula(VincentyFormula vincentyFormula) {
@@ -68,14 +67,12 @@ public class System_Service {
 
     private Facility_Repo facility_repo;
 
-
     private Registration_Repo registration_repo;
 
     @Autowired
     public void Registration_repo(Registration_Repo registration_repo) {
         this.registration_repo = registration_repo;
     }
-
 
     private User_Repo user_repo;
 
@@ -84,17 +81,12 @@ public class System_Service {
         this.user_repo = user_repo;
     }
 
-
     private Diagnosis_Repo diagnosis_repo;
 
     @Autowired
     public void Diagnosis_repo(Diagnosis_Repo diagnosis_repo) {
         this.diagnosis_repo = diagnosis_repo;
     }
-
-
-
-
 
     public UserDTO login(CredentialsDTO credentialsDTO) {
         System_User user = userRepo.findByEmail(credentialsDTO.email())
@@ -113,32 +105,45 @@ public class System_Service {
     }
 
     public UserDTO register(SignUpDTO signUpDTO) {
-        Optional<System_User> ruser = userRepo.findByEmail(signUpDTO.email());
+        System.out.println("=== DEBUG SIGNUP DTO ===");
+        System.out.println("Email: " + (signUpDTO != null ? signUpDTO.getEmail() : "DTO IS NULL"));
+        System.out.println("First Name: " + (signUpDTO != null ? signUpDTO.getFirstName() : "N/A"));
+        System.out.println("Password: " + (signUpDTO != null ? signUpDTO.getPassword() : "N/A"));
+        System.out.println("========================");
+
+        Optional<System_User> ruser = userRepo.findByEmail(signUpDTO.getEmail());
 
         if (ruser.isPresent()) {
             throw new AppException("Login already exists", HttpStatus.BAD_REQUEST);
         }
         System_User user = userMapper.signUpToUser(signUpDTO);
-        user.setPassword(passwordEncoder.encode(CharBuffer.wrap(signUpDTO.password())));
+        user.setPassword(passwordEncoder.encode(CharBuffer.wrap(signUpDTO.getPassword())));
         System_User savedUser = userRepo.save(user);
-        return userMapper.toUserDto(savedUser);
+
+        // Manual mapping fallback to guarantee a populated response
+        UserDTO userDTO = new UserDTO();
+        userDTO.setUserId(savedUser.getUser_Id());
+        userDTO.setEmail(savedUser.getEmail());
+        userDTO.setFirstName(savedUser.getFirstName());
+        userDTO.setLastName(savedUser.getLastName());
+        userDTO.setUserGender(savedUser.getUserGender());
+        userDTO.setUserDOB(savedUser.getUserDOB());
+        userDTO.setRole(savedUser.getRole());
+        userDTO.setFacilityOfChoice(savedUser.getFacilityOfChoice());
+
+        return userDTO;
     }
 
     public Registration_DTO create_registration(Registration_DTO registration_dto, @RequestParam String email, @RequestParam double pat_lat, @RequestParam double pat_long) {
-        // Get the user
         Optional<System_User> get_user = user_repo.findByEmail(email);
         if (get_user.isPresent()) {
             System_User current_user = get_user.get();
-
-            // Get user id
             String user_Id = current_user.getUser_Id();
 
-            // Get the facility coordinates
             List<Facility> all_facilities = facility_repo.findAll();
             double lat1 = pat_lat;
             double long1 = pat_long;
 
-            // Initialize variables to track minimum distance and corresponding facility ID
             double minDistance = Double.MAX_VALUE;
             String facilityIdWithMinDistance = null;
 
@@ -148,42 +153,29 @@ public class System_Service {
 
                 double distance = vincentyFormula.calculateDistance(lat1, long1, lat2, long2);
 
-                // Update minimum distance and corresponding facility ID if a closer facility is found
                 if (distance < minDistance) {
                     minDistance = distance;
                     facilityIdWithMinDistance = facility.getFacility_Id();
                 }
             }
 
-            // Now you have the facilityId with the least distance
             if (facilityIdWithMinDistance != null) {
-                // Create a new Registration object
                 Registration registration = new Registration();
                 registration.setRegistration_Date(new Date());
-                registration.setStatus("Pending"); // Or any other default status
+                registration.setStatus("Pending");
                 registration.setRegistration_Type("Remote");
 
-                registration.setSystem_Facility(facilityIdWithMinDistance); // Set facilityId with least distance
+                registration.setSystem_Facility(facilityIdWithMinDistance);
                 registration.setRegister_User(user_Id);
 
-                // Save the registration
                 registration_repo.save(registration);
 
-                // You may return the registration DTO or any other response here
                 return registration_dto;
             } else {
-                // Handle case where no facilities were found
-                // You might throw an exception or return an appropriate response
                 return null;
             }
         } else {
-            // Handle case where user is not found
-            // You might throw an exception or return an appropriate response
             return null;
         }
     }
-
-
-
-
 }

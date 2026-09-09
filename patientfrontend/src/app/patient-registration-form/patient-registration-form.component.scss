@@ -1,59 +1,144 @@
-.container{
-    background-color: rgb(201, 235, 247);
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border: 1px solid transparent;
-}
-form{
-    margin: auto;
-    background-color:rgb(213, 238, 247);
-    width: 570px;
-    margin-top: 20vh;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 1px 4px 7px 7px lightblue;
-    height: 30%;
-    border: 1px solid orange;
+:host {
+  --paper: #F6F4EF;
+  --paper-dim: #EDEAE1;
+  --ink: #1C2B3A;
+  --ink-soft: #47586A;
+  --teal: #1F6F8B;
+  --teal-dark: #164F63;
+  --clay: #C23B3B;
+  --line: rgba(28, 43, 58, 0.12);
 
+  display: block;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--paper);
+  min-height: calc(100vh - 70px);
 }
-.form-group{
-    width: 100%;
-    margin: auto;
 
+.register-main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 16px;
 }
-input{
+
+.form-wrapper {
+  width: 100%;
+  max-width: 540px;
+}
+
+.registration-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 36px;
+  box-shadow: 0 4px 20px rgba(28, 43, 58, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card-header {
+  text-align: center;
+  margin-bottom: 8px;
+
+  h1 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+
+  p {
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+
+  label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-soft);
+  }
+
+  .input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    input {
+      width: 100%;
+      height: 44px;
+      padding: 0 16px 0 40px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14.5px;
+      color: var(--ink);
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+
+      &::placeholder {
+        color: #9aa8b5;
+      }
+
+      &:focus {
+        outline: none;
+        border-color: var(--teal);
+        box-shadow: 0 0 0 3px rgba(31, 111, 139, 0.15);
+      }
+    }
+
+    mat-icon {
+      position: absolute;
+      left: 12px;
+      font-size: 18px;
+      width: 18px;
+      height: 18px;
+      color: var(--ink-soft);
+      pointer-events: none;
+    }
+  }
+}
+
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+
+  .btn-save {
     width: 100%;
-    height: 55px;
-    margin-bottom:17px;
-    
-}
-header{
-    text-decoration: underline;
-    display: flex;
-    margin-bottom: 20px;
-    margin-top: 11px;
-}
-header h1{
-    margin: auto;
-    font-size: 30px;
-    font-family: sans-serif;
-    margin-bottom: 13px;
-    font-weight: 700;
-}
-.button-group{
-    display: flex;
-}
-.button-group button{
-    margin-right: 40px;
-    background-color: orange;
+    height: 44px;
+    background-color: var(--teal);
+    color: #fff;
     border: none;
-    width: 120px;
-    height: 50px;
-    border-radius: 4px;
-    font-size: 19px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-weight: 700;
+    border-radius: 3px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
 
+    &:hover {
+      background-color: var(--teal-dark);
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(31, 111, 139, 0.2);
+    }
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .registration-card {
+    padding: 24px 20px;
+  }
 }

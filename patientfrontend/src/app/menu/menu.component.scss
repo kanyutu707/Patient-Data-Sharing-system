@@ -1,27 +1,121 @@
-header{
-    display: flex;
-    justify-content: space-between;
-    background-color: rgb(156, 225, 248);
-    height: 50px;
-}
-section a{
-    
-    padding: 10px;
-    text-decoration: none;
-    color: black;
-    margin-right: 5px;
-    border-radius: 5px;
-    border: 1px solid transparent;
-    border-right-color: blue;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    font-size: 20px;
-    font-weight: 490;
-    font-family: sans-serif;
-    
+:host {
+  --paper: #F6F4EF;
+  --paper-dim: #EDEAE1;
+  --ink: #1C2B3A;
+  --ink-soft: #47586A;
+  --teal: #1F6F8B;
+  --teal-dark: #164F63;
+  --clay: #C23B3B;
+  --clay-dark: #9E2E2E;
+  --line: rgba(28, 43, 58, 0.12);
 
+  display: block;
+  font-family: 'Inter', sans-serif;
 }
-section a mat-icon{
-    margin-top: 5px;
-    font-weight: 700;
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  border-bottom: 1px solid var(--line);
+  height: 70px;
+  padding: 0 32px;
+  box-shadow: 0 2px 8px rgba(28, 43, 58, 0.04);
+}
+
+.brand-facility {
+  display: flex;
+  flex-direction: column;
+
+  .facility-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    letter-spacing: 0.5px;
+  }
+
+  h2 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0;
+  }
+}
+
+section.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: var(--ink-soft);
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    font-size: 13.5px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.15s ease;
+
+    &:hover {
+      color: var(--teal);
+      background: var(--paper-dim);
+      border-color: var(--line);
+
+      mat-icon {
+        color: var(--teal);
+      }
+    }
+
+    &.logout-link:hover {
+      color: var(--clay);
+      background: rgba(194, 59, 59, 0.08);
+      border-color: rgba(194, 59, 59, 0.2);
+
+      mat-icon {
+        color: var(--clay);
+      }
+    }
+
+    mat-icon {
+      font-size: 18px;
+      width: 18px;
+      height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink-soft);
+      transition: color 0.15s ease;
+    }
+  }
+}
+
+/* Responsive adjustments for tablet and mobile viewports */
+@media (max-width: 960px) {
+  header {
+    padding: 16px;
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  section.nav-actions {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 6px;
+
+    a {
+      padding: 6px 10px;
+      font-size: 13px;
+    }
+  }
 }

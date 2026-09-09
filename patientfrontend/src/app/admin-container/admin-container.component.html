@@ -1,5 +1,12 @@
 <app-admin-menu></app-admin-menu>
-<div class="container">
-<app-admin-sub-menu></app-admin-sub-menu>
-    
+
+<div class="admin-layout-container">
+  <aside class="admin-sidebar">
+    <app-admin-sub-menu></app-admin-sub-menu>
+  </aside>
+  
+  <main class="admin-content-area">
+    <!-- Main router outlet or dynamic content container goes here -->
+    <router-outlet></router-outlet>
+  </main>
 </div>

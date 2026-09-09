@@ -9,13 +9,7 @@ import { ConnectionService } from '../services/database/connection.service';
 })
 export class HospitalComponent {
   @Input()
-  hospital_rep: HospitalRepresentation = {}
-
-  constructor(
-    private service:ConnectionService
-  ){
-
-  }
+  hospital_rep: HospitalRepresentation = {};
 
   @Output()
   facilityIdClicked: EventEmitter<HospitalRepresentation> = new EventEmitter<HospitalRepresentation>();
@@ -23,18 +17,10 @@ export class HospitalComponent {
   @Output()
   facilityChanger: EventEmitter<HospitalRepresentation> = new EventEmitter<HospitalRepresentation>();
 
+  constructor(private service: ConnectionService) {}
 
   onClick() {
-    const selectedFacility = {
-      facility_Id: this.hospital_rep.facility_Id,
-      facility_Name: this.hospital_rep.facility_Name,
-      facility_Longitude: this.hospital_rep.facility_Longitude,
-      facility_Latitude: this.hospital_rep.facility_Latitude,
-      status:this.hospital_rep.facility_Status
-    };
-
-    this.facilityIdClicked.emit(selectedFacility);
+    // Pass the complete hospital representation to the parent component
+    this.facilityIdClicked.emit(this.hospital_rep);
   }
-
- 
 }

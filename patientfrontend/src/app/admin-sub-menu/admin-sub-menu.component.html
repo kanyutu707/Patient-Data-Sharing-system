@@ -1,6 +1,10 @@
 <app-admin-menu></app-admin-menu>
-<div class="container">
-    <button (click)="active()">ACTIVE</button>
-    <button (click)="deactivated()">Deactivated</button>
-    
+
+<div class="status-toggle-container">
+  <div class="wrap">
+    <div class="toggle-group">
+      <button class="btn-toggle" (click)="active()">Active Facilities</button>
+      <button class="btn-toggle" (click)="deactivated()">Deactivated Facilities</button>
+    </div>
+  </div>
 </div>

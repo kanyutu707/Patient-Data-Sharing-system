@@ -1,117 +1,112 @@
 <app-admin-sub-menu></app-admin-sub-menu>
-<main *ngIf="current_role==='Admin'">
-    <div class="container">
-        <app-searchbar></app-searchbar>
 
-        <header>
-            <h1>
-                FACILITIES
-            </h1>
-        </header>
+<main *ngIf="current_role === 'Admin'" class="admin-hospitals-main">
+  <!-- Left Side: Facilities List Container -->
+  <div class="hospitals-list-section">
+    <app-searchbar></app-searchbar>
 
-        <div class="emergencyContainer">
-            <span>
-                <h4>FACILITY_NAME</h4>
-                <h4>FACILITY_LONGITUDE</h4>
-                <h4>FACILITY_LATITUDE</h4>
-                <h4>STATUS</h4>
-            </span>
-            <ng-container *ngFor="let hospitalPage of paginatedHospitals; let i = index">
-                <div *ngIf="i === currentPage">
-                    <ng-container *ngFor="let hospital_rep of hospitalPage" >
-                    
-                            <app-hospital *ngIf="hospital_rep.facility_Status === 'Active'" [hospital_rep]="hospital_rep" (facilityIdClicked)="onFacilityClicked($event)">
-                            
-                            </app-hospital>
-                        
-                
-                    </ng-container>
-                </div>
+    <header class="section-title-header">
+      <h1>Active Facilities</h1>
+      <p>Manage registered healthcare providers and facility parameters.</p>
+    </header>
+
+    <div class="facility-data-card">
+      <div class="table-head-row">
+        <h4>Facility Name</h4>
+        <h4>Longitude</h4>
+        <h4>Latitude</h4>
+        <h4>Status</h4>
+      </div>
+
+      <div class="facility-items-container">
+        <ng-container *ngFor="let hospitalPage of paginatedHospitals; let i = index">
+          <div *ngIf="i === currentPage" class="page-group">
+            <ng-container *ngFor="let hospital_rep of hospitalPage">
+              <div class="hospital-row-wrapper">
+                <app-hospital 
+                  *ngIf="hospital_rep.facility_Status === 'Active'" 
+                  [hospital_rep]="hospital_rep" 
+                  (facilityIdClicked)="onFacilityClicked($event)">
+                </app-hospital>
+              </div>
             </ng-container>
-            
-        </div>
-
-
-        <div class="pagination-controls">
-            <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 0">
-                <mat-icon>arrow_back</mat-icon>
-            </button>
-            <span>{{ currentPage + 1 }} / {{ paginatedHospitals.length }}</span>
-            <button (click)="changePage(currentPage + 1)" [disabled]="currentPage === paginatedHospitals.length - 1">
-                <mat-icon>arrow_forward</mat-icon>
-            </button>
-        </div>
-
-
+          </div>
+        </ng-container>
+      </div>
     </div>
-    <div class="form-container">
-        <form (ngSubmit)="totalFunction()">
-            <header>
-                <h1>FACILITY DETAILS</h1>
-            </header>
-         
-            <span>
-                <label for="facility_name">FACILITY_NAME</label>
-                <input type="text" placeholder="facility_Name" [(ngModel)]="facility.facility_Name"
-                    name="facility_Name" required>
-            </span>
-            <span>
-               <span>
-                <label for="facility_Longitude">FACILITY_LONGITUDE</label>
-                <input readonly type="text" value="{{longi}}" placeholder="facility_Longitude" [(ngModel)]="facility.facility_Longitude"
-                    name="facility_Longitude" required>
-                     
-                    </span>
-                    <span>
-                        <label for="facility_Latitude">FACILITY_LATITUDE</label>
-                <input readonly type="text" value="{{lati}}" placeholder="facility_Latitude" [(ngModel)]="facility.facility_Latitude"
-                name="facility_Latitude" required>
-                    </span>
-            </span>
-            <!--<span>
-                <label for="statusInput">STATUS</label>
-                <input id="statusInput" type="text" matInput [formControl]="statusControl" [matAutocomplete]="auto"
-                    placeholder="STATUS" [(ngModel)]="facility.facility_Status" name="status">
-                <mat-autocomplete #auto="matAutocomplete">
-                    <mat-option *ngFor="let option of filteredStatusOptions | async" [value]="option">
-                        {{ option }}
-                    </mat-option>
-                </mat-autocomplete>
-                </span>-->
-                <header><h1>ADMIN DETAILS</h1></header>
-                <span>
-                    <label for="first_name">First_Name</label>
-                    <input type="text" placeholder="First_Name" [(ngModel)]="user.first_Name"
-                        name="user.first_Name" required>
-                </span>
-                <span>
-                    <label for="last_name">Last Name</label>
-                    <input type="text" placeholder="Last_Name" [(ngModel)]="user.last_Name"
-                        name="last_Name" required>
-                </span>
-                <span>
-                    <label for="gender">Gender</label>
-                    <input type="text" placeholder="Gender" [(ngModel)]="user.user_Gender"
-                        name="user_Gender" required>
-                </span>
-                <span>
-                    <label for="email">Email</label>
-                    <input type="email" placeholder="Email" [(ngModel)]="user.email"
-                        name="email" required>
-                </span>
 
-                <span>
-                    <label for="password">Password</label>
-                    <input type="password" placeholder="password" [(ngModel)]="user.password"
-                        name="password" required>
-                </span>
-           
-
-            <span id="changeButton">
-                <button type="submit">ACTIVATE</button>
-                <button type="reset">REJECT</button>
-            </span>
-        </form>
+    <!-- Pagination Controls -->
+    <div class="pagination-controls" *ngIf="paginatedHospitals && paginatedHospitals.length > 0">
+      <button class="page-btn" (click)="changePage(currentPage - 1)" [disabled]="currentPage === 0">
+        <mat-icon>arrow_back</mat-icon>
+        <span>Previous</span>
+      </button>
+      <span class="page-indicator">Page {{ currentPage + 1 }} of {{ paginatedHospitals.length }}</span>
+      <button class="page-btn" (click)="changePage(currentPage + 1)" [disabled]="currentPage === paginatedHospitals.length - 1">
+        <span>Next</span>
+        <mat-icon>arrow_forward</mat-icon>
+      </button>
     </div>
+  </div>
+
+  <!-- Right Side: Facility & Admin Form Container -->
+  <div class="form-sidebar-container">
+    <form (ngSubmit)="totalFunction()" class="management-form-card" #facilityForm="ngForm">
+      <div class="form-section-title">
+        <h2>Facility Details</h2>
+      </div>
+
+      <div class="field-group">
+        <label for="facility_name">Facility Name</label>
+        <input type="text" id="facility_name" placeholder="Enter facility name" [(ngModel)]="facility.facility_Name" name="facility_Name" required>
+      </div>
+
+      <div class="geo-coords-row">
+        <div class="field-group">
+          <label for="facility_Longitude">Longitude</label>
+          <input readonly type="text" id="facility_Longitude" [value]="longi" placeholder="Longitude" [(ngModel)]="facility.facility_Longitude" name="facility_Longitude" required>
+        </div>
+        <div class="field-group">
+          <label for="facility_Latitude">Latitude</label>
+          <input readonly type="text" id="facility_Latitude" [value]="lati" placeholder="Latitude" [(ngModel)]="facility.facility_Latitude" name="facility_Latitude" required>
+        </div>
+      </div>
+
+      <div class="form-section-title admin-title-spacing">
+        <h2>Admin Details</h2>
+      </div>
+
+      <div class="field-group">
+        <label for="first_name">First Name</label>
+        <input type="text" id="first_name" placeholder="First name" [(ngModel)]="user.first_Name" name="user_first_Name" required>
+      </div>
+
+      <div class="field-group">
+        <label for="last_name">Last Name</label>
+        <input type="text" id="last_name" placeholder="Last name" [(ngModel)]="user.last_Name" name="user_last_Name" required>
+      </div>
+
+      <div class="field-group">
+        <label for="gender">Gender</label>
+        <input type="text" id="gender" placeholder="Gender" [(ngModel)]="user.user_Gender" name="user_Gender" required>
+      </div>
+
+      <div class="field-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="admin@facility.com" [(ngModel)]="user.email" name="user_email" required>
+      </div>
+
+      <div class="field-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="••••••••" [(ngModel)]="user.password" name="user_password" required>
+      </div>
+
+      <div class="form-actions-row">
+        <button type="submit" class="btn-activate">Activate / Save</button>
+        <button type="reset" class="btn-reject">Clear</button>
+      </div>
+    </form>
+  </div>
 </main>
-<app-login-page *ngIf="current_role!='Admin'"></app-login-page>
+
+<app-login-page *ngIf="current_role !== 'Admin'"></app-login-page>

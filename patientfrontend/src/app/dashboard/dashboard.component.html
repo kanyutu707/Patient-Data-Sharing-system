@@ -1,79 +1,88 @@
 <app-menu></app-menu>
-<div class="container" *ngIf="current_role == 'Medical_Officer' || current_role == 'Medical_Admin'">
-    <section class="top-section">
-        <span id="dashIcon">
-            <header>
-                
-            <h1>Dashboard</h1>
-            </header>
-        </span>
-        <section class="stats">
-            <div class="stat_numbers">
-                <div class="emergency_numbers">
-                        <h1>EMEGENCIES</h1>
-                        {{totalEmergencies}}
-                </div>
-                <div class="other_stats">
-                    <div class="top_other_stats">
-                        <span>
-                            <h1>Inpatient</h1>
-                            {{totalInpatients}}
-                        </span>
-                        <span>
-                            <h1>Outpatients</h1>
-                            {{totalOutpatients}}
-                        </span>
-                    </div>
-                    <div class="bottom_other_stats">
-                        <span>
-                            <h1>Percentage Inpatient</h1>
-                            {{InpatientPercentage}}
-                        </span>
-                        <span>
-                            <h1>Pecentage Outpatient</h1>
-                            {{OutpatientPercentage}}
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="summaryPieChart">
-                <canvas id="MyChart">{{chart}}</canvas>
-                <h3>COMPARISON CHART</h3>
-            </div>
-        </section>
-       
-        <div class="patients">
-            <div class="emergencyContainer">
-                <header>
-                    <h1>Emergency</h1>
-                    <h2>Current Emergencies</h2>
-                </header>
-                <span>
-                    <h4>Image</h4>
-                    <h4>Name</h4>
-                    <h4>Gender</h4>
-                    <h4>Age</h4>
-                </span>
 
-
-                <ng-container *ngFor="let registered_rep of registration; let i = index">
-                    <ng-container *ngIf="i < 5 && registered_rep.registration_Type=='Remote' && registered_rep.facility_Details![i].facility_Id==current_Facility ">
-                        <app-patient [registration_rep]="registered_rep"></app-patient>
-                    </ng-container>
-                </ng-container>
-
-
-
-
-
-                <span>
-                    <a routerLink="Javascript:void(0)" (click)="moveToEmergency()">View All</a>
-                </span>
-            </div>
-           
-        </div>
+<div class="dashboard-wrapper" *ngIf="current_role == 'Medical_Officer' || current_role == 'Medical_Admin'">
+  <div class="wrap">
+    
+    <!-- Top Header & Title -->
+    <section class="dashboard-header">
+      <h1>Facility Dashboard</h1>
+      <p>Overview of live patient statistics, emergency cases, and admission metrics.</p>
     </section>
 
+    <!-- Stats and Chart Section -->
+    <section class="stats-overview">
+      <div class="stat_numbers">
+        
+        <!-- Emergencies Card -->
+        <div class="emergency_numbers">
+          <h3>EMERGENCIES</h3>
+          <span class="stat-val">{{totalEmergencies}}</span>
+        </div>
+
+        <!-- Inpatient / Outpatient Cards Grid -->
+        <div class="other_stats">
+          <div class="top_other_stats">
+            <div class="stat-card">
+              <h4>Inpatients</h4>
+              <span class="stat-val">{{totalInpatients}}</span>
+            </div>
+            <div class="stat-card">
+              <h4>Outpatients</h4>
+              <span class="stat-val">{{totalOutpatients}}</span>
+            </div>
+          </div>
+          <div class="bottom_other_stats">
+            <div class="stat-card">
+              <h4>Inpatient Rate</h4>
+              <span class="stat-val">{{InpatientPercentage}}</span>
+            </div>
+            <div class="stat-card">
+              <h4>Outpatient Rate</h4>
+              <span class="stat-val">{{OutpatientPercentage}}</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Comparison Chart Card -->
+      <div class="summaryPieChart">
+        <div class="canvas-container">
+          <canvas id="MyChart">{{chart}}</canvas>
+        </div>
+        <h3>Comparison Breakdown</h3>
+      </div>
+    </section>
+       
+    <!-- Emergencies Patient List Section -->
+    <section class="patients-section">
+      <div class="emergencyContainer">
+        <div class="emergency-header-card">
+          <div>
+            <h2>Emergency Queue</h2>
+            <p>Active remote and urgent facility incidents</p>
+          </div>
+          <a routerLink="Javascript:void(0)" (click)="moveToEmergency()" class="view-all-link">View All</a>
+        </div>
+
+        <div class="table-head-row">
+          <h4>Image</h4>
+          <h4>Name</h4>
+          <h4>Gender</h4>
+          <h4>Age</h4>
+        </div>
+
+        <div class="patient-list">
+          <ng-container *ngFor="let registered_rep of registration; let i = index">
+            <ng-container *ngIf="i < 5 && registered_rep.registration_Type=='Remote' && registered_rep.facility_Details![i].facility_Id==current_Facility">
+              <app-patient [registration_rep]="registered_rep"></app-patient>
+            </ng-container>
+          </ng-container>
+        </div>
+      </div>
+    </section>
+
+  </div>
 </div>
 
 <app-login-page *ngIf="current_role !== 'Medical_Admin' && current_role !== 'Medical_Officer'"></app-login-page>

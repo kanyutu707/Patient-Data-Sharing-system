@@ -1,27 +1,98 @@
-header{
-    display: flex;
-    justify-content: space-between;
-    background-color: rgb(156, 225, 248);
-    height: 50px;
-}
-section a{
-    
-    padding: 10px;
-    text-decoration: none;
-    color: black;
-    margin-right: 5px;
-    border-radius: 5px;
-    border: 1px solid transparent;
-    border-right-color: blue;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    font-size: 20px;
-    font-weight: 490;
-    font-family: sans-serif;
-    
+:host {
+  --paper: #F6F4EF;
+  --paper-dim: #EDEAE1;
+  --ink: #1C2B3A;
+  --ink-soft: #47586A;
+  --teal: #1F6F8B;
+  --teal-dark: #164F63;
+  --clay: #C23B3B;
+  --clay-dark: #9E2E2E;
+  --line: rgba(28, 43, 58, 0.12);
 
+  display: block;
+  font-family: 'Inter', sans-serif;
 }
-section a mat-icon{
-    margin-top: 5px;
-    font-weight: 700;
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border-bottom: 1px solid var(--line);
+  height: 64px;
+  padding: 0 32px;
+  box-shadow: 0 2px 8px rgba(28, 43, 58, 0.04);
+
+  h2 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: 0.2px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .badge {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      background: var(--paper-dim);
+      color: var(--teal-dark);
+      padding: 2px 8px;
+      border-radius: 3px;
+      letter-spacing: 0.5px;
+    }
+  }
+}
+
+section {
+  display: flex;
+  align-items: center;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+
+    &:hover {
+      background: var(--clay);
+      color: #fff;
+      border-color: var(--clay);
+
+      mat-icon {
+        color: #fff;
+      }
+    }
+
+    mat-icon {
+      font-size: 18px;
+      width: 18px;
+      height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink-soft);
+      transition: color 0.15s ease;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 0 16px;
+    height: 56px;
+  }
 }

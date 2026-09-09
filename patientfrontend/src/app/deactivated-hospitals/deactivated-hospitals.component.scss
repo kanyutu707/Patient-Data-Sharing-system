@@ -1,53 +1,161 @@
+:host {
+  --paper: #F6F4EF;
+  --paper-dim: #EDEAE1;
+  --ink: #1C2B3A;
+  --ink-soft: #47586A;
+  --teal: #1F6F8B;
+  --teal-dark: #164F63;
+  --sage: #CFE0D2;
+  --clay: #C23B3B;
+  --line: rgba(28, 43, 58, 0.12);
 
-.container {
-    background-color: rgb(219, 246, 255);
-    height: 92vh;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-    overflow-x: hidden;
+  display: block;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--paper);
+  min-height: 100vh;
 }
 
-.emergencyContainer {
+.admin-facilities-container {
+  padding: 32px 0 64px;
+
+  .wrap {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+}
+
+.top-search-row {
+  margin-bottom: 24px;
+}
+
+.section-header {
+  margin-bottom: 28px;
+
+  h1 {
+    font-family: 'Source Serif 4', serif;
+    font-size: clamp(26px, 3.2vw, 34px);
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  p {
+    font-size: 15px;
+    color: var(--ink-soft);
+  }
+}
+
+/* Facility Table Card Structure */
+.facility-table-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  box-shadow: 0 4px 16px rgba(28, 43, 58, 0.04);
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.table-head-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--paper-dim);
+  border-bottom: 1px solid var(--line);
+  padding: 14px 24px;
+
+  h4 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     display: flex;
-    flex-direction: column;
-    background-color: rgb(208, 243, 255);
-    width: 97%;
-    
-    padding: 10px;
-    box-shadow: 1px 2px 3px 1px lightblue;
-    margin: auto;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
-.emergencyContainer span {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    height: 30px;
-    border-bottom: 1px solid darkblue;
+.facility-list-body {
+  display: flex;
+  flex-direction: column;
 
+  .hospital-row-item {
+    border-bottom: 1px solid var(--line);
+    cursor: pointer;
+    transition: background-color 0.15s ease;
 
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:hover {
+      background-color: rgba(31, 111, 139, 0.03);
+    }
+  }
 }
 
-.emergencyContainer span img {
-    width: 100px;
+/* Pagination Controls */
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 24px;
+
+  .page-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 40px;
+    padding: 0 16px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    cursor: pointer;
+    transition: all 0.15s ease;
+
+    &:hover:not(:disabled) {
+      background: var(--teal);
+      color: #fff;
+      border-color: var(--teal);
+
+      mat-icon {
+        color: #fff;
+      }
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    mat-icon {
+      font-size: 18px;
+      width: 18px;
+      height: 18px;
+      color: var(--ink-soft);
+    }
+  }
+
+  .page-indicator {
+    font-size: 14.5px;
+    font-weight: 500;
+    color: var(--ink-soft);
+  }
 }
 
-header h1 {
-    margin: 24px;
-    margin-left: 35px;
-    font-size: 33px;
-    font-weight: 700;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .admin-facilities-container .wrap {
+    padding: 0 16px;
+  }
 
-}
-
-#actions {
-    display: flex;
-    justify-content: space-between;
-}
-
-#actions mat-icon:first-child {
-    background-color: lightgreen;
-
+  .table-head-row {
+    display: none; /* Hide rigid table headers on mobile viewports for stacked mobile card layouts */
+  }
 }

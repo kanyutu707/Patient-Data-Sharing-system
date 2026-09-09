@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
-import 'package:mobile/app_files/Database/database_facilities.dart';
 import 'package:mobile/app_files/Database/database_diagnosis.dart';
 import 'package:mobile/app_files/bottom_bar.dart';
 import 'package:mobile/app_files/specific_diagnosis.dart';

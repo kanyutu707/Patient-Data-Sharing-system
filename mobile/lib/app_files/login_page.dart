@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:mobile/app_files/Database/database_user.dart';
 import 'package:mobile/app_files/Registration_Page.dart';
 import 'package:mobile/app_files/emergencies.dart';
 import 'package:mobile/app_files/indexPage.dart';

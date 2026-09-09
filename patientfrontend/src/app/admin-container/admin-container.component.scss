@@ -1,14 +1,68 @@
-.container {
-    display: flex;
-    justify-content: space-between;
+:host {
+  --paper: #F6F4EF;
+  --paper-dim: #EDEAE1;
+  --ink: #1C2B3A;
+  --ink-soft: #47586A;
+  --teal: #1F6F8B;
+  --teal-dark: #164F63;
+  --line: rgba(28, 43, 58, 0.12);
 
+  display: block;
+  min-height: 100vh;
+  background-color: var(--paper);
+  font-family: 'Inter', sans-serif;
 }
 
-app-admin-sub-container {
-    width: 100%;
-    padding: 5px;
+.admin-layout-container {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px 32px;
+  gap: 32px;
 }
 
+.admin-sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 20px;
+  height: fit-content;
+  box-shadow: 0 4px 12px rgba(28, 43, 58, 0.04);
+}
+
+.admin-content-area {
+  flex: 1;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 32px;
+  min-height: 500px;
+  box-shadow: 0 4px 12px rgba(28, 43, 58, 0.04);
+}
+
+/* Facility changer specific custom styling helper */
 app-facility-changer {
-    width: 400px;
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 24px;
+}
+
+/* Responsive layout adjustments for mobile/tablet screens */
+@media (max-width: 860px) {
+  .admin-layout-container {
+    flex-direction: column;
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .admin-sidebar {
+    width: 100%;
+  }
+
+  .admin-content-area {
+    padding: 20px;
+  }
 }

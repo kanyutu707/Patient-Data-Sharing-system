@@ -1,80 +1,203 @@
-<div class="container">
-    <nav>
-        <header>
-            <h2>PDTS</h2>
-        </header>
-        <button (click)="moveToLogin()">
-            <h4>GET STARTED</h4>
-        </button>
-    </nav>
-    <section class="intro">
-        <div class="intro_cover">
-            <h3>Availing your medical records whenever you need them</h3>
-            <h5>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente doloribus sed voluptas voluptatem
-                tempore iusto eligendi deserunt ut excepturi molestias.</h5>
-            <span class="input-left-intro">
-                <input type="text" placeholder="Your email address">
-                <button>Subscribe</button>
-            </span>
-        </div>
+<nav>
+  <div class="brand">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="3" y="3" width="18" height="18" rx="2" stroke="#2C6E6B" stroke-width="1.6"/>
+      <path d="M8 8H16" stroke="#2C6E6B" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M8 12H16" stroke="#2C6E6B" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M8 16H12" stroke="#2C6E6B" stroke-width="1.6" stroke-linecap="round"/>
+    </svg>
+    <span>PDTS</span>
+  </div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#commitment">How it works</a>
+    <a href="#facilities">Facilities</a>
+  </div>
+  <button class="btn btn-primary" (click)="moveToLogin()">Get started</button>
+</nav>
 
-    </section>
-   <section class="commitmentContainer">
-        <header>COMMITMENT</header>
-    <div class="commitment">
-    <div class="commitmentImage">
-        <img src="https://www.shutterstock.com/shutterstock/photos/2278090533/display_1500/stock-photo-man-portrait-of-a-doctor-wearing-a-white-coat-and-eyeglasses-and-a-stethoscope-looking-into-the-2278090533.jpg" alt="" srcset="">
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow-free">
+      <h1>Your medical record, in one place, no matter where you're treated.</h1>
+      <p class="lede">PDTS links the record systems of participating hospitals and clinics, so your history, test results, and prescriptions follow you between visits instead of getting stuck in one building's filing system.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" (click)="moveToLogin()">Get started</button>
+        <a href="#commitment" class="btn btn-outline">See how it works</a>
+      </div>
     </div>
-    <div class="commitmentText">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem quo quibusdam hic. Assumenda doloremque sed, cum itaque placeat quae natus soluta consequatur, earum veritatis odit fugit quos magnam ducimus pariatur accusantium nam dicta. Exercitationem repellat nihil placeat itaque suscipit, soluta ex commodi, consequuntur ut ad harum quo labore hic, minus temporibus. Ipsum porro laudantium numquam corporis. Rem error doloremque velit ab consectetur delectus voluptatum veritatis consequatur, ex eveniet molestiae quis ad nemo voluptatibus, enim quod? Odit possimus ut accusantium nisi tenetur, quaerat laboriosam nemo fugit ducimus ea eos ullam inventore iste ipsa iure magnam, sit consequatur ad officia voluptatibus, culpa quisquam! Officiis quod beatae quas tempora itaque voluptate qui aliquid quam molestias animi molestiae harum ut ullam non amet aut autem illo distinctio, veniam hic dolore! Totam labore laudantium voluptate officiis voluptas, vitae voluptatibus vel explicabo fuga libero repellat mollitia atque consequatur minima possimus facere ab sed excepturi. Sunt quasi sed culpa nulla et quod adipisci, nesciunt natus repudiandae, consequuntur maxime quam, odio accusantium. Dolores voluptatum consequuntur tenetur facere numquam.
+
+    <div class="file-art" aria-hidden="true">
+      <div class="file-tab">
+        <span class="id">FILE REF 2291-A</span>
+        <span class="stamp">Synced</span>
+      </div>
+      <div class="file-row">
+        <span class="k">Facility</span>
+        <span class="v">Referring clinic</span>
+      </div>
+      <div class="file-row">
+        <span class="k">Last visit</span>
+        <span class="v">14 Aug 2026</span>
+      </div>
+      <div class="file-row">
+        <span class="k">Blood panel</span>
+        <div class="bar"><i style="width:82%"></i></div>
+      </div>
+      <div class="file-row">
+        <span class="k">Prescriptions</span>
+        <span class="v">3 active</span>
+      </div>
+      <div class="file-row">
+        <span class="k">Shared with</span>
+        <span class="v">Attending physician</span>
+      </div>
     </div>
-</div>
+  </div>
 </section>
-<div class="currentFacilities">
-    <header>WHY US</header>
-    <section class="why_us">
-        <div class="card">
-            <img src="https://www.shutterstock.com/shutterstock/photos/2278090533/display_1500/stock-photo-man-portrait-of-a-doctor-wearing-a-white-coat-and-eyeglasses-and-a-stethoscope-looking-into-the-2278090533.jpg" alt="" srcset="">
-            <div class="why_text">
-                <h2>TEST FACILITY</h2>
-                <h3>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum illo a asperiores ipsum debitis iure, doloribus soluta, libero officia quo tenetur, quibusdam recusandae inventore? Impedit, distinctio. Dolorem, omnis. Omnis totam autem vitae minima commodi maxime sapiente repudiandae aliquid temporibus consequatur. Maiores soluta saepe distinctio numquam ipsam. Perferendis voluptas tenetur eum, nisi provident officia explicabo fuga temporibus cum repudiandae nulla eveniet vitae cumque omnis dolorem odit voluptatum tempora quisquam aut deserunt.
-                </h3>
-                
-            </div>
-        </div>
-        <div class="card">
-            <img src="https://www.shutterstock.com/shutterstock/photos/2278090533/display_1500/stock-photo-man-portrait-of-a-doctor-wearing-a-white-coat-and-eyeglasses-and-a-stethoscope-looking-into-the-2278090533.jpg" alt="" srcset="">
-            <div class="why_text">
-                <h2>TEST FACILITY</h2>
-                <h3>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum illo a asperiores ipsum debitis iure, doloribus soluta, libero officia quo tenetur, quibusdam recusandae inventore? Impedit, distinctio. Dolorem, omnis. Omnis totam autem vitae minima commodi maxime sapiente repudiandae aliquid temporibus consequatur. Maiores soluta saepe distinctio numquam ipsam. Perferendis voluptas tenetur eum, nisi provident officia explicabo fuga temporibus cum repudiandae nulla eveniet vitae cumque omnis dolorem odit voluptatum tempora quisquam aut deserunt.
-                </h3>
-                
-            </div>
-        </div>
-        
-    
-        <div class="card">
-            <img src="https://www.shutterstock.com/shutterstock/photos/2278090533/display_1500/stock-photo-man-portrait-of-a-doctor-wearing-a-white-coat-and-eyeglasses-and-a-stethoscope-looking-into-the-2278090533.jpg" alt="" srcset="">
-            <div class="why_text">
-                <h2>TEST FACILITY</h2>
-                <h3>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum illo a asperiores ipsum debitis iure, doloribus soluta, libero officia quo tenetur, quibusdam recusandae inventore? Impedit, distinctio. Dolorem, omnis. Omnis totam autem vitae minima commodi maxime sapiente repudiandae aliquid temporibus consequatur. Maiores soluta saepe distinctio numquam ipsam. Perferendis voluptas tenetur eum, nisi provident officia explicabo fuga temporibus cum repudiandae nulla eveniet vitae cumque omnis dolorem odit voluptatum tempora quisquam aut deserunt.
-                </h3>
-                
-            </div>
-        </div>
-        <div class="card">
-            <img src="https://www.shutterstock.com/shutterstock/photos/2278090533/display_1500/stock-photo-man-portrait-of-a-doctor-wearing-a-white-coat-and-eyeglasses-and-a-stethoscope-looking-into-the-2278090533.jpg" alt="" srcset="">
-            <div class="why_text">
-                <h2>TEST FACILITY</h2>
-                <h3>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum illo a asperiores ipsum debitis iure, doloribus soluta, libero officia quo tenetur, quibusdam recusandae inventore? Impedit, distinctio. Dolorem, omnis. Omnis totam autem vitae minima commodi maxime sapiente repudiandae aliquid temporibus consequatur. Maiores soluta saepe distinctio numquam ipsam. Perferendis voluptas tenetur eum, nisi provident officia explicabo fuga temporibus cum repudiandae nulla eveniet vitae cumque omnis dolorem odit voluptatum tempora quisquam aut deserunt.
-                </h3>
-                
-            </div>
-        </div>
-    </section>
+
+<div class="trust-strip">
+  <div class="wrap">
+    <span>Designed for hospitals and clinics</span>
+    <span>Encryption in transit and at rest</span>
+    <span>Built with healthcare data privacy in mind</span>
+    <span>You control who can access your records</span>
+  </div>
 </div>
-</div>
+
+<section class="section commitment" id="commitment">
+  <div class="wrap">
+    <div>
+      <h2>Built so your file is never trapped in one building.</h2>
+      <p>Most record systems stop at the hospital's front door. When you switch clinics, get referred to a specialist, or need care while travelling, your history usually has to be requested, faxed, or re-entered by hand. PDTS keeps one authoritative copy of your record and gives every facility you authorise a live view of it.</p>
+      <div class="commit-points">
+        <div class="pt">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div>
+            <strong>You decide who sees it</strong>
+            <span>Every facility needs your explicit authorisation before viewing or adding to your file.</span>
+          </div>
+        </div>
+        <div class="pt">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div>
+            <strong>Updates in real time</strong>
+            <span>New results and prescriptions appear in your file within minutes of being recorded.</span>
+          </div>
+        </div>
+        <div class="pt">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div>
+            <strong>One number, one history</strong>
+            <span>No duplicate records across facilities, every provider works from the same file.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="commitment-illustration">
+      <svg viewBox="0 0 420 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="120" cy="90" r="46" stroke="#8FC2BC" stroke-width="1.4"/>
+        <circle cx="300" cy="90" r="46" stroke="#8FC2BC" stroke-width="1.4"/>
+        <circle cx="210" cy="230" r="46" stroke="#8FC2BC" stroke-width="1.4"/>
+        <path d="M150 108L182 205" stroke="#F1F6F4" stroke-width="1.3" stroke-dasharray="4 5"/>
+        <path d="M270 108L238 205" stroke="#F1F6F4" stroke-width="1.3" stroke-dasharray="4 5"/>
+        <path d="M166 90H254" stroke="#F1F6F4" stroke-width="1.3" stroke-dasharray="4 5"/>
+        <rect x="96" y="72" width="48" height="36" rx="3" stroke="#F1F6F4" stroke-width="1.4"/>
+        <path d="M104 84H136M104 92H136M104 100H124" stroke="#F1F6F4" stroke-width="1.2" stroke-linecap="round"/>
+        <rect x="276" y="72" width="48" height="36" rx="3" stroke="#F1F6F4" stroke-width="1.4"/>
+        <path d="M284 84H316M284 92H316M284 100H304" stroke="#F1F6F4" stroke-width="1.2" stroke-linecap="round"/>
+        <rect x="186" y="212" width="48" height="36" rx="3" fill="#F1F6F4"/>
+        <path d="M194 224H226M194 232H226M194 240H214" stroke="#1F4F4D" stroke-width="1.2" stroke-linecap="round"/>
+        <circle cx="210" cy="230" r="4" fill="#F1F6F4"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="section services" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What the system handles for you</h2>
+      <p>Four things every facility, patient, and referring physician relies on when a record needs to move.</p>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M5 4h11l3 3v13a1 1 0 01-1 1H5a1 1 0 01-1-1V5a1 1 0 011-1z" stroke="currentColor" stroke-width="1.5"/><path d="M9 12h6M9 16h6M9 8h3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <h3>Instant record retrieval</h3>
+        <p>Pull a patient's full history, imaging, and lab results in seconds instead of waiting on a records request between facilities.</p>
+      </div>
+      <div class="card">
+        <svg class="icon" viewBox="0 0 24 24" fill="none"><rect x="4" y="10" width="16" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 10V7a4 4 0 018 0v3" stroke="currentColor" stroke-width="1.5"/></svg>
+        <h3>Encryption by design</h3>
+        <p>Files are encrypted in transit and at rest, with access logging built in so you can review activity on your record.</p>
+      </div>
+      <div class="card">
+        <svg class="icon" viewBox="0 0 24 24" fill="none"><circle cx="7" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="17" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M4 20c0-3 1.5-5 3-5s3 2 3 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M14 20c0-3 1.5-5 3-5s3 2 3 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <h3>Cross-facility syncing</h3>
+        <p>Referrals, discharge notes, and prescriptions written at one facility are visible to the next one automatically, once authorised.</p>
+      </div>
+      <div class="card">
+        <svg class="icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <h3>24/7 access</h3>
+        <p>View your own file, appointment history, and prescriptions from a phone or computer any time, not just during clinic hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="get-started">
+  <div class="wrap">
+    <h2>Ready to bring your records together?</h2>
+    <p>Create an account to link your existing hospital and clinic visits, or register your facility as a PDTS provider.</p>
+    <div class="cta-actions">
+      <button class="btn btn-primary">Create patient account</button>
+      <button class="btn btn-outline">Register a facility</button>
+    </div>
+  </div>
+</section>
+
+<footer id="facilities">
+  <div class="wrap">
+    <div class="brand">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="3" y="3" width="18" height="18" rx="2" stroke="#8FC2BC" stroke-width="1.6"/>
+        <path d="M8 8H16" stroke="#8FC2BC" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M8 12H16" stroke="#8FC2BC" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M8 16H12" stroke="#8FC2BC" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      <span>PDTS</span>
+    </div>
+    <div class="foot-cols">
+      <div>
+        <h4>Patients</h4>
+        <ul>
+          <li><a href="#">View my record</a></li>
+          <li><a href="#">Manage sharing</a></li>
+          <li><a href="#">Download history</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Facilities</h4>
+        <ul>
+          <li><a href="#">Join the network</a></li>
+          <li><a href="#">Integration guide</a></li>
+          <li><a href="#">Support</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About PDTS</a></li>
+          <li><a href="#">Data privacy</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="wrap bottom">
+    <span>© 2026 PDTS, Patient Data Transfer System</span>
+    <span>Built with healthcare data privacy in mind</span>
+  </div>
+</footer>

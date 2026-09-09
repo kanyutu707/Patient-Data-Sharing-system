@@ -1,40 +1,107 @@
-.container{
-    background-color:  rgb(219, 246, 255);
-    height: 100vh;
-}
-.emergencyContainer {
-    display: flex;
-    flex-direction: column;
-    background-color: whitesmoke;
-  
-}
-header{
-    background-color: rgb(219, 246, 255);
-    margin: 5px;
-}
-header h1{
-    font-size: 28px;
-    font-weight: 800;
-    padding: 5px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-span {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    background-color: rgb(203, 242, 255);
-    margin-bottom: 3px;
+:host {
+  --paper: #F6F4EF;
+  --paper-dim: #EDEAE1;
+  --ink: #1C2B3A;
+  --ink-soft: #47586A;
+  --teal: #1F6F8B;
+  --teal-dark: #164F63;
+  --line: rgba(28, 43, 58, 0.12);
 
+  display: block;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--paper);
+  min-height: calc(100vh - 70px);
 }
 
-h4 {
+.inpatient-main-container {
+  padding: 32px 0 64px;
 
-    width: 100%;
+  .wrap {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+}
+
+.search-section {
+  margin-bottom: 16px;
+}
+
+.inpatient-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  box-shadow: 0 4px 16px rgba(28, 43, 58, 0.04);
+  overflow: hidden;
+}
+
+.section-header {
+  padding: 24px 24px 16px;
+  border-bottom: 1px solid var(--line);
+  background: #fff;
+
+  h1 {
+    font-family: 'Source Serif 4', serif;
+    font-size: clamp(24px, 2.8vw, 28px);
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  p {
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+}
+
+/* Grid Table Head Row (Matches app-patient grid layout) */
+.table-head-row {
+  display: grid;
+  grid-template-columns: 80px 2fr 1fr 1.2fr 1.2fr 120px;
+  align-items: center;
+  background: var(--paper-dim);
+  border-bottom: 1px solid var(--line);
+  padding: 12px 20px;
+
+  h4 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0;
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-family: sans-serif;
-    font-weight: 700;
-    font-size: 20px;
+    text-align: center;
+  }
+}
 
+.table-body {
+  display: flex;
+  flex-direction: column;
+
+  .patient-row-wrapper {
+    border-bottom: 1px solid var(--line);
+    transition: background-color 0.15s ease;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:hover {
+      background-color: rgba(31, 111, 139, 0.02);
+    }
+  }
+}
+
+/* Responsive viewports */
+@media (max-width: 900px) {
+  .inpatient-main-container .wrap {
+    padding: 0 16px;
+  }
+
+  .table-head-row {
+    display: none; /* Stacks gracefully on smaller tablet/mobile devices */
+  }
 }

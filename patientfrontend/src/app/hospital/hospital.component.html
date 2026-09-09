@@ -1,7 +1,10 @@
-<div class="hospital" (click)="onClick()" ondblclick="onDoubleClicked()">
-    
-    <h3>{{hospital_rep.facility_Name}}</h3>
-    <h3>{{hospital_rep.facility_Longitude}}</h3>
-    <h3>{{hospital_rep.facility_Latitude}}</h3>
-    <h3>{{hospital_rep.facility_Status}}</h3>
+<div class="hospital-row" (click)="onClick()">
+  <span class="cell name" data-label="Facility Name">{{ hospital_rep.facility_Name || 'N/A' }}</span>
+  <span class="cell coord" data-label="Longitude">{{ hospital_rep.facility_Longitude || 'N/A' }}</span>
+  <span class="cell coord" data-label="Latitude">{{ hospital_rep.facility_Latitude || 'N/A' }}</span>
+  <span class="cell status" data-label="Status">
+    <span class="badge" [ngClass]="{'active': hospital_rep.facility_Status === 'Active', 'inactive': hospital_rep.facility_Status !== 'Active'}">
+      {{ hospital_rep.facility_Status || 'Unknown' }}
+    </span>
+  </span>
 </div>

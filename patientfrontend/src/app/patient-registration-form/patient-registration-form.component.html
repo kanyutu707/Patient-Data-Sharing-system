@@ -1,35 +1,55 @@
 <app-menu></app-menu>
-<div class="container" *ngIf="current_role == 'Medical_Officer' || current_role == 'Medical_Admin'">
-    
-    <form (ngSubmit)="savePatient()">
-        <header>
-            <h1>
-                REGISTER PATIENT
-            </h1>
-        </header>
-        <section class="form-group">
-            <input list="patientOptions" placeholder="PATIENT" [(ngModel)]="register.system_Patient" name="system_Patient" required>
-            <datalist id="patientOptions">
-                <option *ngFor="let patient of patientOptions" [value]="patient"></option>
-            </datalist>
-            
-        </section>
-        <section class="form-group">
-            <input list="statusOptions" placeholder="INPATIENT / OUTPATIENT" [(ngModel)]="register.status" name="status" required>
-            <datalist id="statusOptions">
-                <option *ngFor="let status of statuses" [value]="status"></option>
-            </datalist>
-            
-        </section>
-        <section class="form-group">
-            <input type="hidden" placeholder="REGISTRATION TYPE" value="Physical" readonly [(ngModel)]="register.registration_Type" name="registration_Type" required>
-        </section>
 
-       
-        <section class="button-group">
-            <button>SAVE</button>
-        </section>
-        
+<main class="register-main-container" *ngIf="current_role === 'Medical_Officer' || current_role === 'Medical_Admin'">
+  <div class="form-wrapper">
+    <form (ngSubmit)="savePatient()" class="registration-card">
+      <header class="card-header">
+        <h1>Register Patient</h1>
+        <p>Assign patient to active facility admission or outpatient queue.</p>
+      </header>
+
+      <div class="form-group">
+        <label for="patient-input">Patient Name / Identifier</label>
+        <div class="input-with-icon">
+          <input 
+            id="patient-input"
+            list="patientOptions" 
+            placeholder="Search or select patient..." 
+            [(ngModel)]="register.system_Patient" 
+            name="system_Patient" 
+            required>
+          <mat-icon>person</mat-icon>
+        </div>
+        <datalist id="patientOptions">
+          <option *ngFor="let patient of patientOptions" [value]="patient"></option>
+        </datalist>
+      </div>
+
+      <div class="form-group">
+        <label for="status-input">Admission Type</label>
+        <div class="input-with-icon">
+          <input 
+            id="status-input"
+            list="statusOptions" 
+            placeholder="Select Inpatient or Outpatient" 
+            [(ngModel)]="register.status" 
+            name="status" 
+            required>
+          <mat-icon>local_hospital</mat-icon>
+        </div>
+        <datalist id="statusOptions">
+          <option *ngFor="let status of statuses" [value]="status"></option>
+        </datalist>
+      </div>
+
+      <!-- Hidden registration type kept for backend payload consistency -->
+      <input type="hidden" value="Physical" [(ngModel)]="register.registration_Type" name="registration_Type" required>
+
+      <div class="button-group">
+        <button type="submit" class="btn-save">Save Record</button>
+      </div>
     </form>
-</div>
+  </div>
+</main>
+
 <app-login-page *ngIf="current_role !== 'Medical_Admin' && current_role !== 'Medical_Officer'"></app-login-page>
